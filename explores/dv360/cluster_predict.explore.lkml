@@ -3,7 +3,7 @@ include: "/views/dv360/cluster_model.view"
 
 explore: cluster_predict {
   view_name: cluster_predict
-  
+  hidden:  yes
   label: "(6) Cluster Predict"
   join: clustering_dataset {
     relationship: one_to_one

@@ -2,7 +2,7 @@ include: "/views/**/*"
 
 explore: impression_funnel_dv360 {
   view_name: impression_funnel_dv360
-  
+  hidden:  yes
   view_label: "DV360 Events"
   label: "(2.5) Impression Funnel DV360"
   description: "Use this funnel explore for a more granular view at cost and impression metrics for DV360 campaigns"

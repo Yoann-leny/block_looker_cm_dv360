@@ -1,19 +1,19 @@
 project_name: "block-google-campaign-manager-dv360-dts"
 
 constant: CONNECTION_NAME {
-  value: "your_bq_connection_name"
+  value: "crg_dclk_datatransfer"
   export: override_required
 }
 constant: PROJECT_NAME {
-  value: "your_bq_project_name"
+  value: "crg-dclk-dt"
   export: override_optional
 }
 constant: DATASET_NAME {
-  value: "your_bq_campaign_manager_dataset"
+  value: "campaign_manager_transfer_david_Jones"
   export: override_optional
 }
 constant: CAMPAIGN_MANAGER_ID {
-  value: "your_campaign_manager_id"
+  value: "1119182"
   export: override_optional
 }
 

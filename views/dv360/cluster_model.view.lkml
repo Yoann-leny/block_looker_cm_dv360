@@ -1,5 +1,5 @@
 view: clustering_dataset {
-  
+
   derived_table: {
     datagroup_trigger: bqml_datagroup
     explore_source: impression_funnel_dv360 {

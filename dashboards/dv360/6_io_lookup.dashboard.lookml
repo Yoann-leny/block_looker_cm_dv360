@@ -5,7 +5,7 @@
   elements:
   - title: Line Item Breakouts
     name: Line Item Breakouts
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_grid
     fields: [impression_funnel_dv360.dbm_line_item_id, impression_funnel_dv360.total_impressions,
@@ -65,7 +65,7 @@
     height: 6
   - title: Performance by Sites (Top 10)
     name: Performance by Sites (Top 10)
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_bar
     fields: [impression_funnel_dv360.dbm_site_id, impression_funnel_dv360.dynamic_measure_label]
@@ -117,7 +117,7 @@
     height: 7
   - title: Performance by DMA
     name: Performance by DMA
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_geo_choropleth
     fields: [impression_funnel_dv360.dynamic_measure_label, impression_funnel_dv360.dbm_designated_market_area_dma_id]
@@ -165,7 +165,7 @@
     height: 7
   - title: Performance by Device Type
     name: Performance by Device Type
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dynamic_measure_label, impression_funnel_dv360.DBM_Device_Type_Name]
@@ -240,7 +240,7 @@
     height: 6
   - title: IO ID
     name: IO ID
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dbm_insertion_order_id]
@@ -275,7 +275,7 @@
     height: 2
   - title: Conversions by DOW & TOD
     name: Conversions by DOW & TOD
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_grid
     fields: [impression_funnel_dv360.impression_hour_of_day, impression_funnel_dv360.impression_day_of_week,
@@ -349,7 +349,7 @@
     height: 9
   - title: Performance by Browser
     name: Performance by Browser
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dynamic_measure, impression_funnel_dv360.dbm_browser_platform_id]
@@ -417,7 +417,7 @@
     height: 6
   - title: Performance & Spend Trend
     name: Performance & Spend Trend
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_line
     fields: [impression_funnel_dv360.impression_date, impression_funnel_dv360.dynamic_measure,
@@ -479,7 +479,7 @@
     height: 6
   - title: Total Impressions
     name: Total Impressions
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.total_impressions, impression_funnel_dv360.previous_period]
@@ -525,7 +525,7 @@
     height: 2
   - title: Performance by Auction Type
     name: Performance by Auction Type
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dynamic_measure_label, impression_funnel_dv360.is_public]
@@ -599,7 +599,7 @@
     height: 7
   - title: Performance by Targeted Segments
     name: Performance by Targeted Segments
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_grid
     fields: [impression_funnel_dv360.dynamic_measure, dbm_matching_targeted_segments_array.dbm_matching_targeted_segments]
@@ -683,7 +683,7 @@
     height: 9
   - title: Performance by Operating System
     name: Performance by Operating System
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dbm_operating_system_id, impression_funnel_dv360.dynamic_measure]
@@ -748,7 +748,7 @@
     height: 7
   - title: Total Spend
     name: Total Spend
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.previous_period, impression_funnel_dv360.dbm_revenue]
@@ -789,7 +789,7 @@
       type: advanced
       display: popover
       options: []
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.dbm_insertion_order_id
@@ -810,7 +810,7 @@
       - Conversion Rate
       - Viewable Impression Rate
       - Measureable Impression Rate
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.metric_selector
@@ -824,7 +824,7 @@
       type: advanced
       display: popover
       options: []
-    model: campaign_manager_dv360_marketplace
+    model: david_jones_campaign_manager_dv360
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.impression_date
