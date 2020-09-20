@@ -437,6 +437,13 @@ view: impression_dv360 {
     sql: ${TABLE}.DBM_Revenue_USD ;;
   }
 
+  measure: total_revenue_usd {
+    view_label: "DV360"
+    type: sum
+    sql: ${dbm_revenue_usd}/1000000000 ;;
+    value_format_name: usd
+  }
+
   dimension: dbm_site_id {
     view_label: "DV360"
     type: string
