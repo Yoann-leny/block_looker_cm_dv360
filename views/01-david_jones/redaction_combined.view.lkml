@@ -1,12 +1,12 @@
 view: redaction_combined {
   derived_table: {
-    sql:  SELECT User_ID,"Impression" AS File_Type FROM `@{PROJECT_NAME}.@{DATASET_NAME}.p_impression_@{CAMPAIGN_MANAGER_ID}`
+    sql:  SELECT User_ID,"Impression" AS File_Type FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_impression_@{DJ_CAMPAIGN_MANAGER_ID}`
             WHERE {% condition partition %}_PARTITIONTIME {% endcondition %}
           UNION ALL
-          SELECT User_ID,"Click" AS File_Type FROM `@{PROJECT_NAME}.@{DATASET_NAME}.p_click_@{CAMPAIGN_MANAGER_ID}`
+          SELECT User_ID,"Click" AS File_Type FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_click_@{DJ_CAMPAIGN_MANAGER_ID}`
             WHERE {% condition partition %}_PARTITIONTIME {% endcondition %}
           UNION ALL
-          SELECT User_ID,"Activity" AS File_Type FROM `@{PROJECT_NAME}.@{DATASET_NAME}.p_activity_@{CAMPAIGN_MANAGER_ID}`
+          SELECT User_ID,"Activity" AS File_Type FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_activity_@{DJ_CAMPAIGN_MANAGER_ID}`
             WHERE {% condition partition %}_PARTITIONTIME {% endcondition %}
       ;;
   }

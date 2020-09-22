@@ -2,8 +2,8 @@ include: "/views/**/*"
 
 explore: activity{
   view_name: activity
-
-  label: "01 CM+DV360 Activities"
+ group_label: "01-david_jones"
+  label: "01.01 CM+DV360 Activities"
   view_label: "Activities"
 
   sql_always_where: ${activity_raw} > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY)) ;;

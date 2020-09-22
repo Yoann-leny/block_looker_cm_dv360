@@ -1,5 +1,5 @@
 view: match_table_creatives {
-  
+
   derived_table: {
     sql:
       SELECT * FROM (
@@ -19,7 +19,7 @@ view: match_table_creatives {
             PARTITION BY Rendering_ID
             ORDER BY _DATA_DATE DESC
           ) AS Recency
-        FROM `@{PROJECT_NAME}.@{DATASET_NAME}.match_table_creatives_@{CAMPAIGN_MANAGER_ID}`
+        FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.match_table_creatives_@{DJ_CAMPAIGN_MANAGER_ID}`
       )
         WHERE Recency = 1
  ;;

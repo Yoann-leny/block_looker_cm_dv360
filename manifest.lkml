@@ -1,22 +1,35 @@
-project_name: "block-google-campaign-manager-dv360-dts"
-
+project_name: "cm_dv360"
 constant: CONNECTION_NAME {
   value: "crg_dclk_datatransfer"
   export: override_required
 }
-constant: PROJECT_NAME {
+###Constant variable for David Jones
+constant: DJ_PROJECT_NAME {
   value: "crg-dclk-dt"
   export: override_optional
 }
-constant: DATASET_NAME {
+constant: DJ_DATASET_NAME {
   value: "campaign_manager_transfer_david_Jones"
   export: override_optional
 }
-constant: CAMPAIGN_MANAGER_ID {
+constant: DJ_CAMPAIGN_MANAGER_ID {
   value: "1119182"
   export: override_optional
 }
-
+###Constant variable for CRG
+constant: CRG_PROJECT_NAME {
+  value: "crg-dclk-dt"
+  export: override_optional
+}
+constant: CRG_DATASET_NAME {
+  value: "campaign_manager_transfer_david_Jones"
+  export: override_optional
+}
+constant: CRG_CAMPAIGN_MANAGER_ID {
+  value: "1119182"
+  export: override_optional
+}
+### Other Common constants
 constant: DV360_PARTNER_ID {
   ## This is used for links
   value: ""

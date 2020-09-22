@@ -2,7 +2,7 @@ include: "date_comparison.view.lkml"
 include: "/views/dv360/impression_dv360.view"
 
 view: impression {
-  sql_table_name: `@{PROJECT_NAME}.@{DATASET_NAME}.p_impression_@{CAMPAIGN_MANAGER_ID}` ;;
+  sql_table_name: `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_impression_@{DJ_CAMPAIGN_MANAGER_ID}` ;;
   extends: [date_comparison, impression_dv360]
 
   dimension_group: impression {
@@ -38,7 +38,7 @@ view: impression {
     link: {
       label: "View in Campaign Manager"
       icon_url: "https://seeklogo.com/images/G/google-campaign-manager-logo-03026740FA-seeklogo.com.png"
-      url: "https://www.google.com/dfa/trafficking/#/accounts/@{CAMPAIGN_MANAGER_ID}/advertisers/{{value}}/explorer?"
+      url: "https://www.google.com/dfa/trafficking/#/accounts/@{DJ_CAMPAIGN_MANAGER_ID}/advertisers/{{value}}/explorer?"
     }
   }
 
@@ -65,7 +65,7 @@ view: impression {
     link: {
       label: "View in Campaign Manager"
       icon_url: "https://seeklogo.com/images/G/google-campaign-manager-logo-03026740FA-seeklogo.com.png"
-      url: "https://www.google.com/dfa/trafficking/#/accounts/@{CAMPAIGN_MANAGER_ID}/campaigns/{{value}}/explorer?"
+      url: "https://www.google.com/dfa/trafficking/#/accounts/@{DJ_CAMPAIGN_MANAGER_ID}/campaigns/{{value}}/explorer?"
     }
   }
 

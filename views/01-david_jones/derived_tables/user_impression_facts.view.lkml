@@ -1,5 +1,5 @@
 view: user_impression_facts {
-  
+
   derived_table: {
     datagroup_trigger: new_day
     sql:
@@ -8,7 +8,7 @@ view: user_impression_facts {
         impression.Campaign_ID  AS campaign_id,
         COUNT(DISTINCT (concat(impression.Ad_ID, impression.Advertiser_ID, impression.User_ID, cast(impression.Event_Time as string), impression.Event_Type, impression.Rendering_ID)) ) AS count_impressions,
         (COUNT(DISTINCT (concat(impression.Ad_ID, impression.Advertiser_ID, impression.User_ID, cast(impression.Event_Time as string), impression.Event_Type, impression.Rendering_ID)) ))/NULLIF((COUNT(DISTINCT impression.User_ID )),0)  AS impressions_per_user
-      FROM `@{PROJECT_NAME}.@{DATASET_NAME}.p_impression_@{CAMPAIGN_MANAGER_ID}` AS impression
+      FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_impression_@{DJ_CAMPAIGN_MANAGER_ID}` AS impression
       WHERE impression._PARTITIONTIME > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY))
       GROUP BY 1,2 ;;
   }

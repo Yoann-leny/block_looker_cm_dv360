@@ -1,15 +1,31 @@
 include: "date_comparison.view"
-include: "/views/dv360/click_dv360.view"
-
-view: click {
-  sql_table_name: `@{PROJECT_NAME}.@{DATASET_NAME}.p_click_@{CAMPAIGN_MANAGER_ID}`;;
-  extends: [date_comparison, click_dv360]
+include: "/views/dv360/activity_dv360.view"
 
 
-  dimension_group: click {
+view: activity {
+  sql_table_name: `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_activity_@{DJ_CAMPAIGN_MANAGER_ID}` ;;
+  extends: [date_comparison, activity_dv360]
+
+  dimension_group: activity {
     type: time
     timeframes: [raw, date, week, day_of_week, month, month_name, quarter, year]
     sql: ${TABLE}._PARTITIONTIME ;;
+  }
+
+  dimension: pk {
+    primary_key: yes
+    type: string
+    sql: concat(${activity_id}, ${ad_id}, ${advertiser_id}, ${user_id}, cast(${TABLE}.Event_Time as string), ${event_type}, ${rendering_id}) ;;
+  }
+
+  measure: count_activities {
+    type: count_distinct
+    sql: ${pk} ;;
+  }
+
+  dimension: activity_id {
+    type: string
+    sql: ${TABLE}.Activity_ID ;;
   }
 
   dimension: ad_id {
@@ -37,9 +53,9 @@ view: click {
     sql: ${TABLE}.Campaign_ID ;;
   }
 
-  dimension: city_id {
+  dimension: conversion_id {
     type: string
-    sql: ${TABLE}.City_ID ;;
+    sql: ${TABLE}.Conversion_ID ;;
   }
 
   dimension: country_code {
@@ -52,11 +68,6 @@ view: click {
     sql: ${TABLE}.Creative_Version ;;
   }
 
-  dimension: designated_market_area_dma_id {
-    type: string
-    sql: ${TABLE}.Designated_Market_Area_DMA_ID ;;
-  }
-
   dimension: event_sub_type {
     type: string
     sql: ${TABLE}.Event_Sub_Type ;;
@@ -65,7 +76,7 @@ view: click {
   dimension_group: event {
     type: time
     datatype: epoch
-    sql: ${TABLE}.Event_Time/1000000 ;;
+    sql: CAST(${TABLE}.Event_Time/1000000 as INT64) ;;
   }
 
   dimension: event_type {
@@ -73,9 +84,35 @@ view: click {
     sql: ${TABLE}.Event_Type ;;
   }
 
+  dimension: floodlight_configuration {
+    type: string
+    sql: ${TABLE}.Floodlight_Configuration ;;
+  }
+
+  dimension_group: interaction {
+    type: time
+    datatype: epoch
+    sql: INTEGER(${TABLE}.Interaction_Time)/1000000 ;;
+  }
+
   dimension: operating_system_id {
     type: string
     sql: ${TABLE}.Operating_System_ID ;;
+  }
+
+  dimension: ord_value {
+    type: string
+    sql: ${TABLE}.ORD_Value ;;
+  }
+
+  dimension: other_data {
+    type: string
+    sql: ${TABLE}.Other_Data ;;
+  }
+
+  dimension: product_purchased {
+    type: string
+    sql: TRIM(REGEXP_EXTRACT(${other_data}, r"u4=(.+?);")) ;;
   }
 
   dimension: partner1_id {
@@ -113,6 +150,11 @@ view: click {
     sql: ${TABLE}.State_Region ;;
   }
 
+  dimension: tran_value {
+    type: string
+    sql: ${TABLE}.TRAN_Value ;;
+  }
+
   dimension: u_value {
     type: string
     sql: ${TABLE}.U_Value ;;
@@ -123,14 +165,31 @@ view: click {
     sql: ${TABLE}.User_ID ;;
   }
 
-  dimension: zip_postal_code {
-    type: string
-    sql: ${TABLE}.ZIP_Postal_Code ;;
-  }
+
+  ### Measures
 
   measure: count {
     type: count
     drill_fields: [match_table_campaigns.campaign_name, count]
     value_format:"[<1000]0.00;[<1000000]0.00,\" K\";0.00,,\" M\""
   }
+
+  measure: distinct_users {
+    type: count_distinct
+    sql: ${user_id} ;;
+    value_format:"[<1000]0.00;[<1000000]0.00,\" K\";0.00,,\" M\""
+  }
+
+  measure: total_conversions {
+    type: sum
+    sql: ${TABLE}.Total_Conversions ;;
+    value_format:"[<1000]0.00;[<1000000]0.00,\" K\";0.00,,\" M\""
+  }
+
+  measure: total_revenue {
+    type: sum
+    sql: ${TABLE}.Total_Revenue ;;
+    value_format:"[<1000]0.00;[<1000000]0.00,\" K\";0.00,,\" M\""
+  }
+
 }

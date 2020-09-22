@@ -1,5 +1,5 @@
 view: match_table_ads {
-  sql_table_name: (select * from `@{PROJECT_NAME}.@{DATASET_NAME}.match_table_ads_@{CAMPAIGN_MANAGER_ID}` where _LATEST_DATE = _DATA_DATE) ;;
+  sql_table_name: (select * from `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.match_table_ads_@{DJ_CAMPAIGN_MANAGER_ID}` where _LATEST_DATE = _DATA_DATE) ;;
 
   dimension: ad_name {
     type: string
