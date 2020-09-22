@@ -44,7 +44,7 @@
     height: 4
   - title: Overall CPA
     name: Overall CPA
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.cpa, impression_funnel_dv360.previous_period]
@@ -84,7 +84,7 @@
     height: 2
   - title: Overall CPC
     name: Overall CPC
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.cpc, impression_funnel_dv360.previous_period]
@@ -117,7 +117,7 @@
     height: 2
   - title: Overall CPM
     name: Overall CPM
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.cpm, impression_funnel_dv360.previous_period]
@@ -148,7 +148,7 @@
     height: 2
   - title: Overall CTR
     name: Overall CTR
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.ctr, impression_funnel_dv360.previous_period]
@@ -180,7 +180,7 @@
     height: 2
   - title: Overall CR
     name: Overall CR
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.cr, impression_funnel_dv360.previous_period]
@@ -212,7 +212,7 @@
     height: 2
   - title: "% Viewable Impressions"
     name: "% Viewable Impressions"
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.percent_impressions_viewed, impression_funnel_dv360.previous_period]
@@ -244,7 +244,7 @@
     height: 2
   - title: "% Measurable Impressions"
     name: "% Measurable Impressions"
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.percent_impressions_measurable, impression_funnel_dv360.previous_period]
@@ -277,7 +277,7 @@
     height: 2
   - title: Top IO
     name: Top IO
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure, impression_funnel_dv360.dbm_insertion_order_id_label]
@@ -324,7 +324,7 @@
     height: 2
   - title: IO 2nd
     name: IO 2nd
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure, impression_funnel_dv360.dbm_insertion_order_id_label]
@@ -368,7 +368,7 @@
     height: 2
   - title: IO3
     name: IO3
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure, impression_funnel_dv360.dbm_insertion_order_id_label]
@@ -412,7 +412,7 @@
     height: 2
   - title: IO Comparison
     name: IO Comparison
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_bar
     fields: [impression_funnel_dv360.dynamic_measure, dynamic_io_rank.rank_comparitor,
@@ -497,7 +497,7 @@
     height: 8
   - title: Performance by Device Type
     name: Performance by Device Type
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dynamic_measure_label, impression_funnel_dv360.DBM_Device_Type_Name,
@@ -570,7 +570,7 @@
     height: 8
   - title: Top Metric
     name: Top Metric
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure_label]
@@ -598,7 +598,7 @@
     height: 2
   - title: Second Metric
     name: Second Metric
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure_label]
@@ -626,7 +626,7 @@
     height: 2
   - title: Second Metric (copy)
     name: Second Metric (copy)
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.dynamic_measure_label]
@@ -654,7 +654,7 @@
     height: 2
   - title: Performance by Designated Metro Area
     name: Performance by Designated Metro Area
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_geo_choropleth
     fields: [impression_funnel_dv360.dynamic_measure, impression_funnel_dv360.dbm_designated_market_area_dma_id]
@@ -716,7 +716,7 @@
     height: 10
   - title: IO Comparison Over Time
     name: IO Comparison Over Time
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_line
     fields: [impression_funnel_dv360.dynamic_measure, dynamic_io_rank.rank_comparitor,
@@ -800,7 +800,7 @@
     height: 8
   - title: Total Line Items
     name: Total Line Items
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.line_item_count_label]
@@ -828,7 +828,7 @@
     height: 2
   - title: Total Line Items (copy)
     name: Total Line Items (copy)
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.line_item_count_label]
@@ -856,7 +856,7 @@
     height: 2
   - title: Total Line Items (copy 2)
     name: Total Line Items (copy 2)
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.line_item_count_label]
@@ -884,7 +884,7 @@
     height: 2
   - title: Campaign Benchmark
     name: Campaign Benchmark
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_line
     fields: [impression_funnel_dv360.campaign_comparison, impression_funnel_dv360.dynamic_measure,
@@ -955,7 +955,7 @@
     height: 8
   - title: Insertion Order Breakdown
     name: Insertion Order Breakdown
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_grid
     fields: [impression_funnel_dv360.dbm_revenue, impression_funnel_dv360.dynamic_measure,
@@ -1021,7 +1021,7 @@
     height: 9
   - title: Total Insertion Orders
     name: Total Insertion Orders
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.insertion_order_count]
@@ -1047,7 +1047,7 @@
     height: 2
   - title: Percent Change in Metric by IO
     name: Percent Change in Metric by IO
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_bar
     fields: [impression_funnel_dv360.dbm_insertion_order_id, impression_funnel_dv360.dynamic_measure,
@@ -1169,7 +1169,7 @@
     height: 2
   - title: Link to DV360
     name: Link to DV360
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.campaign_id_button]
@@ -1207,7 +1207,7 @@
     height: 3
   - title: Performance by Targeted Segments
     name: Performance by Targeted Segments
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_grid
     fields: [impression_funnel_dv360.dynamic_measure, dbm_matching_targeted_segments_array.dbm_matching_targeted_segments]
@@ -1292,7 +1292,7 @@
     height: 8
   - title: Performance by Operating System
     name: Performance by Operating System
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: looker_column
     fields: [impression_funnel_dv360.dbm_operating_system_id, impression_funnel_dv360.dynamic_measure]
@@ -1356,7 +1356,7 @@
     height: 10
   - title: Cluster Dashboard Button
     name: Cluster Dashboard Button
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.cluster_dashboards]
@@ -1383,7 +1383,7 @@
     height: 3
   - title: IOs without Clicks/Conversions
     name: IOs without Clicks/Conversions
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     type: single_value
     fields: [impression_funnel_dv360.insertion_order_count]
@@ -1431,7 +1431,7 @@
     ui_config:
       type: dropdown_menu
       display: popover
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.campaign_id
@@ -1452,7 +1452,7 @@
       - Conversion Rate
       - Viewable Impression Rate
       - Measureable Impression Rate
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.metric_selector
@@ -1469,7 +1469,7 @@
       - seven
       - fourteen
       - thirty
-    model: david_jones_campaign_manager_dv360
+    model: david_jones_campaign_manager_dv360_v2
     explore: impression_funnel_dv360
     listens_to_filters: []
     field: impression_funnel_dv360.impression_date

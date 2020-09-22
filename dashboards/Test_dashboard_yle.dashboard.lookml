@@ -1,5 +1,5 @@
-- dashboard: YLE_testing_Dash
-  title: CRG Digital Snapshot YLE
+- dashboard: crg_digital_snapshot_v2
+  title: CRG Digital Snapshot v2
   layout: newspaper
   elements:
   - name: Media Spend (Last 30 days)
@@ -28,19 +28,6 @@
       join_fields:
       - field_name: facebook_ads.date_start_date
         source_field_name: ad_group._data_date
-    - model: david_jones_campaign_manager_dv360
-      explore: impression
-      type: table
-      fields: [impression.event_date, impression.total_revenue_usd]
-      fill_fields: [impression.event_date]
-      filters:
-        impression.event_date: 30 days
-      sorts: [impression.event_date desc]
-      limit: 500
-      query_timezone: America/Los_Angeles
-      join_fields:
-      - field_name: impression.event_date
-        source_field_name: ad_group._data_date
     custom_color_enabled: true
     show_single_value_title: true
     single_value_title: Media Spend
@@ -54,18 +41,18 @@
     conditional_formatting_include_nulls: false
     type: single_value
     hidden_fields: [master_stats.total_cost_usd, facebook_ads.total_spend, percent_change,
-      total, impression.total_revenue_usd]
+      total]
     series_types: {}
     sorts: [ad_group._data_date desc]
     dynamic_fields: [{table_calculation: total_sum, label: Total Sum, expression: 'sum(${total})',
         value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number},
-      {table_calculation: total, label: Total, expression: 'coalesce(${master_stats.total_cost_usd},0)+coalesce(${facebook_ads.total_spend},0)+coalesce(${impression.total_revenue_usd},0)',
+      {table_calculation: total, label: Total, expression: 'coalesce(${master_stats.total_cost_usd},0)+coalesce(${facebook_ads.total_spend},0)',
         value_format: !!null '', value_format_name: usd, _kind_hint: measure, _type_hint: number},
       {table_calculation: percent_change, label: Percent Change, expression: "${total}/offset(${total},1)\
           \ - 1", value_format: !!null '', value_format_name: percent_0, _kind_hint: measure,
         _type_hint: number}, {table_calculation: yesterday, label: Yesterday, expression: 'offset(${total},1)',
         value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    row: 4
+    row: 12
     col: 0
     width: 6
     height: 4
@@ -117,7 +104,7 @@
         _type_hint: number}, {table_calculation: goal, label: Goal, expression: '15000000',
         value_format: !!null '', value_format_name: decimal_0, _kind_hint: dimension,
         _type_hint: number}]
-    row: 4
+    row: 8
     col: 6
     width: 6
     height: 4
@@ -204,7 +191,7 @@
         value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number},
       {table_calculation: cpm, label: CPM, expression: "${total_impressions}/${total_costs}",
         value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    row: 30
+    row: 34
     col: 0
     width: 12
     height: 5
@@ -316,7 +303,7 @@
     series_types: {}
     hidden_fields: [ga_sessions.visitStart_date, totals.average_order_value]
     listen: {}
-    row: 14
+    row: 18
     col: 0
     width: 6
     height: 6
@@ -355,7 +342,7 @@
         value_format: !!null '', value_format_name: usd, _kind_hint: measure, _type_hint: number},
       {table_calculation: cpm, label: CPM, expression: "${total_costs}/(${total_impressions}/1000)",
         value_format: !!null '', value_format_name: usd, _kind_hint: measure, _type_hint: number}]
-    row: 8
+    row: 4
     col: 6
     width: 6
     height: 4
@@ -436,7 +423,7 @@
     hidden_fields: [ga_sessions.visitStart_date, totals.transactionRevenue_total,
       running_total]
     listen: {}
-    row: 14
+    row: 18
     col: 6
     width: 6
     height: 6
@@ -496,7 +483,7 @@
     note_text: Reduced spend during tail end of MSS. $10/k per week down to 5/k per
       week
     listen: {}
-    row: 30
+    row: 34
     col: 12
     width: 12
     height: 5
@@ -576,7 +563,7 @@
     totals_color: "#808080"
     defaults_version: 1
     listen: {}
-    row: 26
+    row: 30
     col: 0
     width: 24
     height: 4
@@ -637,7 +624,7 @@
     defaults_version: 1
     series_types: {}
     listen: {}
-    row: 20
+    row: 24
     col: 0
     width: 24
     height: 6
@@ -653,7 +640,7 @@
     type: text
     title_text: CONVERSION
     subtitle_text: Facebook (CONVERSIONS) + Google (SEARCH, SHOPPING)
-    row: 12
+    row: 16
     col: 0
     width: 12
     height: 2
@@ -782,3 +769,78 @@
     col: 12
     width: 12
     height: 6
+  - name: New Tile
+    title: New Tile
+    merged_queries:
+    - model: google_adwords
+      explore: master_stats
+      type: looker_line
+      fields: [master_stats._data_date, master_stats.total_cost_usd]
+      fill_fields: [master_stats._data_date]
+      filters:
+        master_stats._data_date: 30 days
+      sorts: [master_stats._data_date desc]
+      limit: 500
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      show_null_points: true
+      interpolation: linear
+      defaults_version: 1
+    - model: google_analytics_block
+      explore: facebook_ads
+      type: table
+      fields: [facebook_ads.date_start_date, facebook_ads.total_spend]
+      fill_fields: [facebook_ads.date_start_date]
+      filters:
+        facebook_ads.date_start_date: 30 days
+      sorts: [facebook_ads.date_start_date desc]
+      limit: 500
+      query_timezone: America/Los_Angeles
+      join_fields:
+      - field_name: facebook_ads.date_start_date
+        source_field_name: master_stats._data_date
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_fields: [facebook_ads.total_spend, gadsfb, master_stats.total_cost_usd,
+      master_stats._data_date]
+    series_types: {}
+    type: single_value
+    sorts: [master_stats._data_date desc]
+    dynamic_fields: [{table_calculation: total_spend, label: Total Spend, expression: 'sum(${gadsfb})
+
+          ', value_format: !!null '', value_format_name: usd, _kind_hint: measure,
+        _type_hint: number}, {table_calculation: gadsfb, label: Gads+FB, expression: 'coalesce(${master_stats.total_cost_usd},0)+coalesce(${facebook_ads.total_spend},0)',
+        value_format: !!null '', value_format_name: usd, _kind_hint: measure, _type_hint: number},
+      {table_calculation: yesterday, label: Yesterday, expression: 'offset(${gadsfb},1)',
+        value_format: !!null '', value_format_name: usd, _kind_hint: measure, _type_hint: number}]
+    row: 4
+    col: 0
+    width: 6
+    height: 4
