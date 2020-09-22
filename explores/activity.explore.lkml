@@ -2,7 +2,7 @@ include: "/views/**/*"
 
 explore: activity{
   view_name: activity
- group_label: "01-david_jones"
+ group_label: "01-David Jones"
   label: "01.011 CM+DV360 Activities"
   view_label: "Activities"
 

@@ -2,7 +2,7 @@ include: "/views/**/*"
 
 explore: impression {
   view_name: impression
-  group_label: "01-david_jones"
+  group_label: "01-David Jones"
   label: "01.013 CM+DV360 Impressions"
   view_label: "Impressions"
 

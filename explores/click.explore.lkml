@@ -2,7 +2,7 @@ include: "/views/**/*"
 
 explore: click{
   view_name: click
-  group_label: "01-david_jones"
+  group_label: "01-David Jones"
 
   label: "01.012 CM+DV360 Clicks"
   view_label: "Clicks"

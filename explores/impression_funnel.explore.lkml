@@ -3,7 +3,7 @@ include: "/views/**/*"
 explore: impression_funnel {
   view_name: impression_funnel
   hidden: yes
-  group_label: "01-david_jones"
+  group_label: "01-David Jones"
   label: "01.014 CM+DV360 Impression Funnel"
 
   sql_always_where: TIMESTAMP(${first_ad_impression_date}) > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY))  ;;
