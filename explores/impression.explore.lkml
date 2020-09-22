@@ -2,8 +2,8 @@ include: "/views/**/*"
 
 explore: impression {
   view_name: impression
-
-  label: "01 CM+DV360 Impressions"
+  group_label: "01-david_jones"
+  label: "01.013 CM+DV360 Impressions"
   view_label: "Impressions"
 
   sql_always_where: ${impression_raw} > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY)) ;;

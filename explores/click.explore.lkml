@@ -2,8 +2,9 @@ include: "/views/**/*"
 
 explore: click{
   view_name: click
+  group_label: "01-david_jones"
 
-  label: "01 CM+DV360 Clicks"
+  label: "01.012 CM+DV360 Clicks"
   view_label: "Clicks"
 
   sql_always_where: ${click_raw} > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY)) ;;
