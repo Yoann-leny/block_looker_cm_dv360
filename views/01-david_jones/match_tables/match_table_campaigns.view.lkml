@@ -18,7 +18,7 @@ view: match_table_campaigns {
   }
   dimension: campaign_category {
     type: string
-    sql:  SPLIT(${campaign_name}, ' - ')[SAFE_OFFSET(2)] ;;
+    sql:  SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] ;;
     drill_fields: [campaign_name]
   }
 
