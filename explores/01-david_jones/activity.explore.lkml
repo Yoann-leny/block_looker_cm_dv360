@@ -1,6 +1,9 @@
 include: "/views/**/*"
 
 explore: activity{
+  always_filter: {
+    filters: [activity.brand_name: "David Jones"]
+  }
   view_name: activity
  group_label: "01-David Jones"
   label: "01.011 CM+DV360 Activities"

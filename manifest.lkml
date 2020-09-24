@@ -22,11 +22,11 @@ constant: CRG_PROJECT_NAME {
   export: override_optional
 }
 constant: CRG_DATASET_NAME {
-  value: "campaign_manager_transfer_david_Jones"
+  value: "campaign_manager_transfers"
   export: override_optional
 }
 constant: CRG_CAMPAIGN_MANAGER_ID {
-  value: "1119182"
+  value: "815883"
   export: override_optional
 }
 ### Other Common constants

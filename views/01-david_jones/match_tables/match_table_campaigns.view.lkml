@@ -16,6 +16,11 @@ view: match_table_campaigns {
     type: string
     sql: ${TABLE}.Campaign ;;
   }
+  dimension: campaign_category {
+    type: string
+    sql:  SPLIT(${campaign_name}, ' - ')[SAFE_OFFSET(2)] ;;
+    drill_fields: [campaign_name]
+  }
 
   dimension_group: campaign_end {
     type: time
