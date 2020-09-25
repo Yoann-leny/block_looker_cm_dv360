@@ -444,6 +444,13 @@ view: impression_dv360 {
     value_format_name: usd
   }
 
+  measure: total_revenue_advertiser_currency {
+    view_label: "DV360"
+    type: sum
+    sql: ${dbm_revenue_advertiser_currency}/1000000000 ;;
+    value_format_name: usd
+  }
+
   dimension: dbm_site_id {
     view_label: "DV360"
     type: string
