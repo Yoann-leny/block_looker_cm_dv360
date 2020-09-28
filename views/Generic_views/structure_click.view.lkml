@@ -60,8 +60,9 @@ view: structure_click {
 
   dimension_group: event {
     type: time
+    timeframes: [raw, date, hour,week, day_of_week, month, month_name, quarter, year]
     datatype: epoch
-    sql: ${TABLE}.Event_Time/1000000 ;;
+    sql: CAST(${TABLE}.Event_Time/1000000 as INT64)
   }
 
   dimension: event_type {
@@ -125,6 +126,7 @@ view: structure_click {
   }
 
   measure: count {
+    label: "count_clicks"
     type: count
     drill_fields: [match_table_campaigns.campaign_name, count]
     value_format:"[<1000]0.00;[<1000000]0.00,\" K\";0.00,,\" M\""

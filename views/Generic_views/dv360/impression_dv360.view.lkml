@@ -439,6 +439,7 @@ view: impression_dv360 {
 
   measure: total_revenue_usd {
     view_label: "DV360"
+    label: "total_media_spend_usd"
     type: sum
     sql: ${dbm_revenue_usd}/1000000000 ;;
     value_format_name: usd

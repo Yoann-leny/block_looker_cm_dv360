@@ -18,7 +18,12 @@ view: match_table_campaigns {
   }
   dimension: campaign_category {
     type: string
-    sql:  SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] ;;
+    sql:  Case
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%DR%" AND SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%remarketing%" then "Performance"
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%Programs%" then "Tactical/Campaign"
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
+   else SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] end ;;
     drill_fields: [campaign_name]
   }
 
