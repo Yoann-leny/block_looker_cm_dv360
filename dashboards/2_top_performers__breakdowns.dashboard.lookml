@@ -580,6 +580,6 @@
       - fourteen
       - thirty
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression
+    explore: dj_impression
     listens_to_filters: []
-    field: impression.comparison_type
+    field: dj_impression.comparison_type

@@ -1,11 +1,7 @@
-include: "date_comparison.view"
-include: "/views/dv360/click_dv360.view"
+include: "/views/**/*.view"
 
-view: click {
-  sql_table_name: `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_click_@{DJ_CAMPAIGN_MANAGER_ID}`;;
-  extends: [date_comparison, click_dv360]
-
-
+view: structure_click {
+  extension: required
   dimension_group: click {
     type: time
     timeframes: [raw, date, week, day_of_week, month, month_name, quarter, year]

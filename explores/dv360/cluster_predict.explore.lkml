@@ -1,4 +1,4 @@
-include: "/views/dv360/cluster_model.view"
+include: "/views/**/*.view"
 
 
 explore: cluster_predict {

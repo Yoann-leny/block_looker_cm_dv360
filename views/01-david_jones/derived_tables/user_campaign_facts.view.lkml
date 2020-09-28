@@ -1,5 +1,5 @@
 view: user_campaign_facts {
-  
+
   derived_table: {
     datagroup_trigger: new_day
     sql: SELECT
@@ -11,7 +11,7 @@ view: user_campaign_facts {
         max(impression_funnel.latest_click) AS latest_campaign_click_date,
         max(impression_funnel.latest_activity) AS latest_campaign_activity_date,
         max(impression_funnel.latest_impression) AS latest_campaign_impression_date
-      FROM ${impression_funnel.SQL_TABLE_NAME} AS impression_funnel
+      FROM ${dj_impression_funnel.SQL_TABLE_NAME} AS impression_funnel
       GROUP BY 1,2
        ;;
   }

@@ -1,4 +1,4 @@
-- dashboard: 4_data_health_check
+- dashboard: 4_dj_data_health_check
   title: "(4) Data Health Check"
   layout: newspaper
   #preferred_viewer: dashboards-next # Dashboards Next set as default from 7.12 release
@@ -22,9 +22,9 @@
   - title: Total User IDs
     name: Total User IDs
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     type: single_value
-    fields: [redaction_combined.total_count]
+    fields: [dj_redaction_combined.total_count]
     filters: {}
     limit: 500
     query_timezone: America/Los_Angeles
@@ -40,8 +40,8 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date Range: redaction_combined.partition
-      File Type: redaction_combined.file_type
+      Date Range: dj_redaction_combined.partition
+      File Type: dj_redaction_combined.file_type
     row: 4
     col: 0
     width: 6
@@ -49,9 +49,9 @@
   - title: Total Filled
     name: Total Filled
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     type: single_value
-    fields: [redaction_combined.total_filled]
+    fields: [dj_redaction_combined.total_filled]
     filters: {}
     limit: 500
     query_timezone: America/Los_Angeles
@@ -67,8 +67,8 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date Range: redaction_combined.partition
-      File Type: redaction_combined.file_type
+      Date Range: dj_redaction_combined.partition
+      File Type: dj_redaction_combined.file_type
     row: 6
     col: 0
     width: 6
@@ -76,9 +76,9 @@
   - title: Total Redacted
     name: Total Redacted
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     type: single_value
-    fields: [redaction_combined.total_redacted]
+    fields: [dj_redaction_combined.total_redacted]
     filters: {}
     limit: 500
     query_timezone: America/Los_Angeles
@@ -94,8 +94,8 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date Range: redaction_combined.partition
-      File Type: redaction_combined.file_type
+      Date Range: dj_redaction_combined.partition
+      File Type: dj_redaction_combined.file_type
     row: 8
     col: 0
     width: 6
@@ -103,9 +103,9 @@
   - title: Redaction Rate
     name: Redaction Rate
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     type: single_value
-    fields: [redaction_combined.redaction_rate]
+    fields: [dj_redaction_combined.redaction_rate]
     filters: {}
     limit: 500
     query_timezone: America/Los_Angeles
@@ -126,8 +126,8 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date Range: redaction_combined.partition
-      File Type: redaction_combined.file_type
+      Date Range: dj_redaction_combined.partition
+      File Type: dj_redaction_combined.file_type
     row: 4
     col: 6
     width: 9
@@ -135,11 +135,11 @@
   - title: Redaction By File Type
     name: Redaction By File Type
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     type: looker_pie
-    fields: [redaction_combined.redaction_rate, redaction_combined.file_type]
+    fields: [dj_redaction_combined.redaction_rate, dj_redaction_combined.file_type]
     filters: {}
-    sorts: [redaction_combined.redaction_rate desc]
+    sorts: [dj_redaction_combined.redaction_rate desc]
     limit: 500
     column_limit: 50
     value_labels: legend
@@ -193,8 +193,8 @@
     show_silhouette: false
     totals_color: "#808080"
     listen:
-      Date Range: redaction_combined.partition
-      File Type: redaction_combined.file_type
+      Date Range: dj_redaction_combined.partition
+      File Type: dj_redaction_combined.file_type
     row: 4
     col: 15
     width: 9
@@ -207,9 +207,9 @@
     allow_multiple_values: true
     required: false
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     listens_to_filters: []
-    field: redaction_combined.partition
+    field: dj_redaction_combined.partition
   - name: File Type
     title: File Type
     type: field_filter
@@ -221,6 +221,6 @@
       display: popover
       options: []
     model: david_jones_campaign_manager_dv360_v2
-    explore: data_health_check
+    explore: dj_data_health_check
     listens_to_filters: []
-    field: redaction_combined.file_type
+    field: dj_redaction_combined.file_type

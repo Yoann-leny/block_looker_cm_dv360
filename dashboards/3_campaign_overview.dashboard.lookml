@@ -7,11 +7,11 @@
   - title: Campaign Metrics
     name: Campaign Metrics
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_grid
-    fields: [impression_funnel.campaign_id, match_table_campaigns.campaign_start_date,
-      match_table_campaigns.campaign_end_date, impression_funnel.advertiser_id, match_table_ads.ad_type,
-      impression_funnel.ad_id]
+    fields: [dj_impression_funnel.campaign_id, match_table_campaigns.campaign_start_date,
+      match_table_campaigns.campaign_end_date, dj_impression_funnel.advertiser_id, match_table_ads.ad_type,
+      dj_impression_funnel.ad_id]
     sorts: [match_table_campaigns.campaign_start_date desc]
     limit: 500
     column_limit: 50
@@ -73,7 +73,7 @@
     series_colors: {}
     defaults_version: 1
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 6
     col: 0
     width: 17
@@ -166,10 +166,10 @@
   - title: Campaign Click Through Rate
     name: Campaign Click Through Rate
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: single_value
-    fields: [impression_funnel.click_through_rate]
-    sorts: [impression_funnel.click_through_rate desc]
+    fields: [dj_impression_funnel.click_through_rate]
+    sorts: [dj_impression_funnel.click_through_rate desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -202,7 +202,7 @@
     interpolation: linear
     series_types: {}
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 4
     col: 18
     width: 6
@@ -210,10 +210,10 @@
   - title: Campaign Conversion Rate
     name: Campaign Conversion Rate
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: single_value
-    fields: [impression_funnel.conversion_rate]
-    sorts: [impression_funnel.conversion_rate desc]
+    fields: [dj_impression_funnel.conversion_rate]
+    sorts: [dj_impression_funnel.conversion_rate desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -246,7 +246,7 @@
     interpolation: linear
     series_types: {}
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 2
     col: 18
     width: 6
@@ -254,11 +254,11 @@
   - title: Impression Funnel
     name: Impression Funnel
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_column
-    fields: [impression_funnel.total_impressions, impression_funnel.total_clicks,
-      impression_funnel.total_conversions]
-    sorts: [impression_funnel.total_impressions desc]
+    fields: [dj_impression_funnel.total_impressions, dj_impression_funnel.total_clicks,
+      dj_impression_funnel.total_conversions]
+    sorts: [dj_impression_funnel.total_impressions desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -294,10 +294,10 @@
       palette_id: google-categorical-0
       options:
         steps: 5
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: impression_funnel.total_impressions,
-            id: impression_funnel.total_impressions, name: Total Impressions}, {axisId: impression_funnel.total_conversions,
-            id: impression_funnel.total_conversions, name: Total Conversions}, {axisId: impression_funnel.total_clicks,
-            id: impression_funnel.total_clicks, name: Total Clicks}], showLabels: true,
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: dj_impression_funnel.total_impressions,
+            id: dj_impression_funnel.total_impressions, name: Total Impressions}, {axisId: dj_impression_funnel.total_conversions,
+            id: dj_impression_funnel.total_conversions, name: Total Conversions}, {axisId: dj_impression_funnel.total_clicks,
+            id: dj_impression_funnel.total_clicks, name: Total Clicks}], showLabels: true,
         showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     hidden_series: []
@@ -329,7 +329,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 18
     col: 11
     width: 13
@@ -417,10 +417,10 @@
   - title: Campaign Country Reach
     name: Campaign Country Reach
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_map
-    fields: [impression_funnel.total_impressions, impression_funnel.country_code]
-    sorts: [impression_funnel.total_impressions desc]
+    fields: [dj_impression_funnel.total_impressions, dj_impression_funnel.country_code]
+    sorts: [dj_impression_funnel.total_impressions desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -483,7 +483,7 @@
     map_value_scale_clamp_min: 0
     map_value_scale_clamp_max: 10000
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 43
     col: 0
     width: 24
@@ -571,11 +571,11 @@
   - title: Impressions, Clicks and Conversions by First Impression Date
     name: Impressions, Clicks and Conversions by First Impression Date
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_line
-    fields: [impression_funnel.total_impressions, impression_funnel.total_conversions,
-      impression_funnel.total_clicks, impression_funnel.first_ad_impression_date]
-    sorts: [impression_funnel.first_ad_impression_date desc]
+    fields: [dj_impression_funnel.total_impressions, dj_impression_funnel.total_conversions,
+      dj_impression_funnel.total_clicks, dj_impression_funnel.first_ad_impression_date]
+    sorts: [dj_impression_funnel.first_ad_impression_date desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -614,9 +614,9 @@
     series_types: {}
     series_colors: {}
     series_point_styles:
-      impression_funnel.total_impressions: diamond
-      impression_funnel.total_conversions: diamond
-      impression_funnel.total_clicks: diamond
+      dj_impression_funnel.total_impressions: diamond
+      dj_impression_funnel.total_conversions: diamond
+      dj_impression_funnel.total_clicks: diamond
     y_axis_orientation: [left, right, right]
     ordering: none
     show_null_labels: false
@@ -625,7 +625,7 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 18
     col: 0
     width: 11
@@ -633,10 +633,10 @@
   - title: Action Rate
     name: Action Rate
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: single_value
-    fields: [impression_funnel.action_rate]
-    sorts: [impression_funnel.action_rate desc]
+    fields: [dj_impression_funnel.action_rate]
+    sorts: [dj_impression_funnel.action_rate desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -672,7 +672,7 @@
     series_types: {}
     value_format: 00.00%
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 2
     col: 12
     width: 6
@@ -726,10 +726,10 @@
   - title: Total Conversions
     name: Total Conversions
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: single_value
-    fields: [impression_funnel.total_conversions]
-    sorts: [impression_funnel.total_conversions desc]
+    fields: [dj_impression_funnel.total_conversions]
+    sorts: [dj_impression_funnel.total_conversions desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -764,7 +764,7 @@
     totals_color: "#808080"
     series_types: {}
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 4
     col: 12
     width: 6
@@ -822,12 +822,12 @@
   - title: Trending Action and Conversion Rates
     name: Trending Action and Conversion Rates
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_line
-    fields: [impression_funnel.first_ad_impression_date, impression_funnel.conversion_rate,
-      impression_funnel.action_rate, impression_funnel.count_users, impression_funnel.total_impressions,
-      impression_funnel.total_conversions, impression_funnel.total_clicks]
-    sorts: [impression_funnel.first_ad_impression_date desc]
+    fields: [dj_impression_funnel.first_ad_impression_date, dj_impression_funnel.conversion_rate,
+      dj_impression_funnel.action_rate, dj_impression_funnel.count_users, dj_impression_funnel.total_impressions,
+      dj_impression_funnel.total_conversions, dj_impression_funnel.total_clicks]
+    sorts: [dj_impression_funnel.first_ad_impression_date desc]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -865,20 +865,20 @@
     colors: ["#5245ed", "#1ea8df", "#353b49", "#49cec1", "#b3a0dd", "#db7f2a", "#706080",
       "#a2dcf3", "#776fdf", "#e9b404", "#635189"]
     series_types:
-      impression_funnel.count_users: column
+      dj_impression_funnel.count_users: column
     series_colors:
-      impression_funnel.count_users: "#34A853"
+      dj_impression_funnel.count_users: "#34A853"
     y_axis_orientation: [right, right]
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    hidden_fields: [impression_funnel.total_impressions, impression_funnel.total_conversions,
-      impression_funnel.total_clicks]
+    hidden_fields: [dj_impression_funnel.total_impressions, dj_impression_funnel.total_conversions,
+      dj_impression_funnel.total_clicks]
     defaults_version: 1
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 26
     col: 0
     width: 24
@@ -886,12 +886,12 @@
   - title: Count Users by Ad and First Impression Date
     name: Count Users by Ad and First Impression Date
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     type: looker_line
-    fields: [impression_funnel.first_ad_impression_date, impression_funnel.count_users,
+    fields: [dj_impression_funnel.first_ad_impression_date, dj_impression_funnel.count_users,
       match_table_ads.ad_name]
     pivots: [match_table_ads.ad_name]
-    sorts: [impression_funnel.first_ad_impression_date desc, match_table_ads.ad_name]
+    sorts: [dj_impression_funnel.first_ad_impression_date desc, match_table_ads.ad_name]
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
@@ -928,11 +928,11 @@
     colors: ['palette: Santa Cruz']
     series_types: {}
     series_colors:
-      " Tracking Ad 1x1 Flashtalking https://www.xfinity.com/ET - impression_funnel.count_users": "#c0edd5"
+      " Tracking Ad 1x1 Flashtalking https://www.xfinity.com/ET - dj_impression_funnel.count_users": "#c0edd5"
       ? 160 x 600 1/23/2020 - 12/31/2020 AAM DV TRST 100% CORP_Q1_2020_NASCAR_NED_NON_DT_4267656_FT_160x600
-        - impression_funnel.count_users
+        - dj_impression_funnel.count_users
       : "#f5dfdf"
-      160x600 1.1 - 12.31 AAM TRST DV 100% BUS_Q1_2020_B2B_WST_TOT_DT_4263276_FT_160x600 - impression_funnel.count_users: "#edc0ba"
+      160x600 1.1 - 12.31 AAM TRST DV 100% BUS_Q1_2020_B2B_WST_TOT_DT_4263276_FT_160x600 - dj_impression_funnel.count_users: "#edc0ba"
     ordering: none
     show_null_labels: false
     show_totals_labels: false
@@ -940,7 +940,7 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Campaign ID: impression_funnel.campaign_id
+      Campaign ID: dj_impression_funnel.campaign_id
     row: 35
     col: 0
     width: 24
@@ -993,6 +993,6 @@
       type: advanced
       display: popover
     model: david_jones_campaign_manager_dv360_v2
-    explore: impression_funnel
+    explore: dj_impression_funnel
     listens_to_filters: []
-    field: impression_funnel.campaign_id
+    field: dj_impression_funnel.campaign_id

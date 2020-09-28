@@ -25,7 +25,7 @@ view: impression_pdt {
                 ,sum(active_view_viewable_impressions) as active_view_viewable_impressions
                 ,sum(active_view_measurable_impressions) as active_view_measurable_impressions
                 ,sum(active_view_eligible_impressions) as active_view_eligible_impression
-            from ${impression.SQL_TABLE_NAME}
+            from ${dj_impression.SQL_TABLE_NAME}
             where _PARTITIONTIME > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -@{HISTORICAL_DATA_DV360} DAY))
             and dbm_advertiser_id is not null
 
@@ -55,7 +55,7 @@ view: click_pdt {
                       , IFNULL(DBM_Browser_Platform_ID,'Unknown') as DBM_Browser_Platform_ID
                      , IFNULL(dbm_operating_system_id,'Unknown') as dbm_operating_system_id
                       , count(*) as count_clicks
-                  from ${click.SQL_TABLE_NAME}
+                  from ${dj_click.SQL_TABLE_NAME}
                   where _PARTITIONTIME > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -@{HISTORICAL_DATA_DV360} DAY))
                   and dbm_advertiser_id is not null
 
@@ -86,7 +86,7 @@ view: activity_pdt {
                       , IFNULL(DBM_Browser_Platform_ID,'Unknown') as DBM_Browser_Platform_ID
                       , IFNULL(dbm_operating_system_id,'Unknown') as dbm_operating_system_id
                       , count(*) as count_conversions
-                      from ${activity.SQL_TABLE_NAME}
+                      from ${dj_activity.SQL_TABLE_NAME}
 
                       where event_type = 'CONVERSION'
                     and _PARTITIONTIME > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -@{HISTORICAL_DATA_DV360} DAY))
@@ -99,7 +99,7 @@ view: activity_pdt {
 
 
 view: impression_funnel_dv360 {
-  
+
   derived_table: {
     datagroup_trigger: new_day
     partition_keys: ["event_time"]

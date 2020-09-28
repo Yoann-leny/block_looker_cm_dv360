@@ -1,4 +1,4 @@
-view: redaction_combined {
+view: dj_redaction_combined {
   derived_table: {
     sql:  SELECT User_ID,"Impression" AS File_Type FROM `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.p_impression_@{DJ_CAMPAIGN_MANAGER_ID}`
             WHERE {% condition partition %}_PARTITIONTIME {% endcondition %}
