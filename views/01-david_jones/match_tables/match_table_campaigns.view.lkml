@@ -16,14 +16,37 @@ view: match_table_campaigns {
     type: string
     sql: ${TABLE}.Campaign ;;
   }
+  dimension: campaign_name_abr {
+    type: string
+    sql: Case when ${campaign_name} like "BidManager%" then ${campaign_name}
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] is null and SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] is not null
+    then ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(1)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(3)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(4)],"")
+    else
+    ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(1)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(3)] ,"")
+    || " " || ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(4)] ,"") end ;;
+  }
   dimension: campaign_category {
     type: string
-    sql:  Case
-    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%DR%" AND SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%remarketing%" then "Performance"
-    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] like "%Programs%" then "Tactical/Campaign"
+    sql:  Case when ${campaign_name} like "BidManager%" then "Unknown"
+    when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] is null and SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] is not null
+    then Case
+    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
+    when ${campaign_name} like "%Programs%" then "Tactical/Campaign"
+    when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Menswear" then "Men"
+    when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
+   else ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)],"") end
+  else
+    Case
+    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
+    when ${campaign_name} like "%Programs%" then "Tactical/Campaign"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
-   else SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] end ;;
+   else ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)],"") end end ;;
     drill_fields: [campaign_name]
   }
 

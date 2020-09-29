@@ -62,7 +62,7 @@ view: structure_click {
     type: time
     timeframes: [raw, date, hour,week, day_of_week, month, month_name, quarter, year]
     datatype: epoch
-    sql: CAST(${TABLE}.Event_Time/1000000 as INT64)
+    sql: CAST(${TABLE}.Event_Time/1000000 as INT64) ;;
   }
 
   dimension: event_type {
