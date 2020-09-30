@@ -36,14 +36,14 @@ view: match_table_campaigns {
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] is null and SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] is not null
     then Case
     when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
-    when ${campaign_name} like "%Programs%" then "Tactical/Campaign"
+    when ${campaign_name} like "%Programs%" then "Programs"
     when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Menswear" then "Men"
     when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
    else ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)],"") end
   else
     Case
     when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
-    when ${campaign_name} like "%Programs%" then "Tactical/Campaign"
+    when ${campaign_name} like "%Programs%" then "Programs"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
    else ifnull(SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)],"") end end ;;

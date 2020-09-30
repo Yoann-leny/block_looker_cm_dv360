@@ -19,6 +19,14 @@ view: dj_activity {
   #   {% endif %} ;;
   extends: [date_comparison,activity_dv360,structure_activity]
 
+  parameter: choose_a_metric {
+    type: string
+    allowed_value: { value: "Impressions" }
+    allowed_value: { value: "Clicks" }
+    allowed_value: { value: "Conversions" }
+    allowed_value: { value: "Revenue" }
+  }
+
   # parameter: brand_name {
   #   type: unquoted
   #   allowed_value: {
