@@ -34,8 +34,12 @@ view: match_table_paid_search {
     sql: Case
           when ${paid_search_campaign} like "%DR%" OR ${paid_search_campaign} like "%remarketing%" then "Programs"
           when ${paid_search_campaign} like "%Programs%" then "Programs"
+         when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] like "%Mixed%" then "Brands"
+         when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] like "%Electrical%" then "Home & Electrical"
+         when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] like "%Home%" then "Home & Electrical"
+    when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] like "%Shoes%" then "Shoes & Accessories"
           when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
           when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
-         else ifnull(SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)],"") end  ;;
+         else ifnull(SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)],"Unknown") end  ;;
   }
 }

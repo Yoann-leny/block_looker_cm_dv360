@@ -1,6 +1,6 @@
 view: master_campaign_category {
   # # You can specify the table name if it's different from the view name:
-   sql_table_name: Select "Programs" as campaign_category FROM (select 1)
+   sql_table_name: (Select "Programs" as campaign_category FROM (select 1)
 UNION ALL
 Select "Designer" as campaign_category FROM (select 1)
 UNION ALL
@@ -12,13 +12,13 @@ Select "Beauty" as campaign_category FROM (select 1)
 UNION ALL
 Select "Kids" as campaign_category FROM (select 1)
 UNION ALL
-Select "Home" as campaign_category FROM (select 1)
+Select "Brands" as campaign_category FROM (select 1)
 UNION ALL
-Select "Electrical" as campaign_category FROM (select 1)
+Select "Home & Electrical" as campaign_category FROM (select 1)
 UNION ALL
 Select "Shoes & Accessories" as campaign_category FROM (select 1)
 UNION ALL
-Select "Unknown" as campaign_category FROM (select 1); ;;
+Select "Unknown" as campaign_category FROM (select 1)) ;;
 
   dimension: master_campaign_category {
     type: string
