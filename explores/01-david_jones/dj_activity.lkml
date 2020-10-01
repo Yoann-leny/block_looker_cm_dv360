@@ -49,4 +49,6 @@ explore: dj_activity{
           and ${dj_activity.segment_value_1} = ${match_table_paid_search.Paid_Search_Legacy_Keyword_ID};;
     relationship: many_to_one
   }
+
+
 }

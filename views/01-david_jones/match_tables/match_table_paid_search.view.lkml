@@ -24,8 +24,18 @@ view: match_table_paid_search {
     sql: ${TABLE}.advertiser_id ;;
   }
 
-  dimension: Paid_Search_Campaign {
+  dimension: paid_search_campaign {
     type: string
     sql: ${TABLE}.Paid_Search_Campaign ;;
+  }
+
+  dimension: paid_search_campaign_category {
+    type: string
+    sql: Case
+          when ${paid_search_campaign} like "%DR%" OR ${paid_search_campaign} like "%remarketing%" then "Programs"
+          when ${paid_search_campaign} like "%Programs%" then "Programs"
+          when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
+          when SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
+         else ifnull(SPLIT(${paid_search_campaign}, ' - ')[SAFE_OFFSET(2)],"") end  ;;
   }
 }
