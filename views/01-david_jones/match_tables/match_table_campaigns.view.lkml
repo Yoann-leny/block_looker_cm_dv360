@@ -17,6 +17,7 @@ view: match_table_campaigns {
     sql: ${TABLE}.Campaign ;;
   }
   dimension: campaign_name_abr {
+    label: "Campaign Name"
     type: string
     sql: Case when ${campaign_name} like "BidManager%" then ${campaign_name}
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] is null and SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] is not null
@@ -35,14 +36,14 @@ view: match_table_campaigns {
     sql:  Case when ${campaign_name} like "BidManager%" then "Unknown"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] is null and SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] is not null
     then Case
-    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
+    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Programs"
     when ${campaign_name} like "%Programs%" then "Programs"
     when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Menswear" then "Men"
     when SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
    else ifnull(SPLIT(${campaign_name}, '_')[SAFE_OFFSET(2)],"") end
   else
     Case
-    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Performance"
+    when ${campaign_name} like "%DR%" OR ${campaign_name} like "%remarketing%" then "Programs"
     when ${campaign_name} like "%Programs%" then "Programs"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Menswear" then "Men"
     when SPLIT(${campaign_name}, ' | ')[SAFE_OFFSET(2)] = "Womenswear" then "Women"
