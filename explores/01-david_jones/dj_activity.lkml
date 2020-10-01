@@ -40,4 +40,13 @@ explore: dj_activity{
     sql_on: ${dj_activity.browser_platform_id} = ${match_table_browsers.browser_platform_id} ;;
     relationship: many_to_one
   }
+
+  join: match_table_paid_search {
+    view_label: "Paid Search"
+    sql_on: ${dj_activity.ad_id} = ${match_table_paid_search.ad_id}
+          and ${dj_activity.advertiser_id} = ${match_table_paid_search.advertiser_id}
+          and ${dj_activity.campaign_id} = ${match_table_paid_search.campaign_id}
+          and ${dj_activity.segment_value_1} = ${match_table_paid_search.Paid_Search_Legacy_Keyword_ID};;
+    relationship: many_to_one
+  }
 }

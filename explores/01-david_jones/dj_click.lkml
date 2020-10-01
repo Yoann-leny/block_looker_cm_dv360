@@ -29,13 +29,23 @@ explore: dj_click{
 
   join: match_table_ad_placement_assignments {
     view_label: "Ad Placements"
-    sql_on: ${dj_click.ad_id} = ${match_table_ad_placement_assignments.ad_id} and ${dj_click.placement_id} = ${match_table_ad_placement_assignments.placement_id} ;;
+    sql_on: ${dj_click.ad_id} = ${match_table_ad_placement_assignments.ad_id}
+    and ${dj_click.placement_id} = ${match_table_ad_placement_assignments.placement_id} ;;
     relationship: many_to_one
   }
 
   join: match_table_browsers {
     view_label: "Browsers"
     sql_on: ${dj_click.browser_platform_id} = ${match_table_browsers.browser_platform_id} ;;
+    relationship: many_to_one
+  }
+
+  join: match_table_paid_search {
+    view_label: "Paid Search"
+    sql_on: ${dj_click.ad_id} = ${match_table_paid_search.ad_id}
+    and ${dj_click.advertiser_id} = ${match_table_paid_search.advertiser_id}
+    and ${dj_click.campaign_id} = ${match_table_paid_search.campaign_id}
+    and ${dj_click.segment_value_1} = ${match_table_paid_search.Paid_Search_Legacy_Keyword_ID};;
     relationship: many_to_one
   }
 }
