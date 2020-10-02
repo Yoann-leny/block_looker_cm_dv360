@@ -12,6 +12,8 @@ Select "Beauty" as campaign_category FROM (select 1)
 UNION ALL
 Select "Kids" as campaign_category FROM (select 1)
 UNION ALL
+Select "Food" as campaign_category FROM (select 1)
+UNION ALL
 Select "Brands" as campaign_category FROM (select 1)
 UNION ALL
 Select "Home & Electrical" as campaign_category FROM (select 1)

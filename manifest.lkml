@@ -16,6 +16,11 @@ constant: DJ_CAMPAIGN_MANAGER_ID {
   value: "1119182"
   export: override_optional
 }
+constant: DJ_FORECAST_DATASET {
+  value: "01_forecasting_data"
+  export: override_optional
+}
+
 ###Constant variable for CRG
 constant: CRG_PROJECT_NAME {
   value: "crg-dclk-dt"
