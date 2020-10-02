@@ -4,8 +4,8 @@ view: dj_paid_social_forecast {
       from `@{DJ_PROJECT_NAME}.@{DJ_FORECAST_DATASET}.paid_social_forecast` ;;
 
     dimension: week_start_date {
-      type: date_day_of_week
-      sql: ${TABLE}.week_start_date ;;
+      type: date
+      sql: ${TABLE}.week_start_date;;
     }
 
     dimension: budget_target {

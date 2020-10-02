@@ -1,10 +1,9 @@
 view: dj_dv360_forecast {
 
-    sql_table_name: select *
-        from `@{DJ_PROJECT_NAME}.@{DJ_FORECAST_DATASET}.dv360_forecast` ;;
+    sql_table_name: `@{DJ_PROJECT_NAME}.@{DJ_FORECAST_DATASET}.dv360_forecast` dj_dv360_forecast;;
 
       dimension: week_start_date {
-        type: date_day_of_week
+        type: date
         sql: ${TABLE}.week_start_date ;;
       }
 
