@@ -8,44 +8,44 @@ explore: dj_impression {
 
   sql_always_where: ${impression_raw} > TIMESTAMP(DATE_ADD(CURRENT_DATE, INTERVAL -60 DAY)) ;;
 
-  join: match_table_ads {
+  join: dj_match_table_ads {
     view_label: "Ads"
-    sql_on: ${dj_impression.ad_id} = ${match_table_ads.ad_id} ;;
+    sql_on: ${dj_impression.ad_id} = ${dj_match_table_ads.ad_id} ;;
     relationship: many_to_one
   }
 
-  join: match_table_campaigns {
+  join: dj_match_table_campaigns {
     view_label: "Campaigns"
-    sql_on: ${dj_impression.campaign_id} = ${match_table_campaigns.campaign_id} ;;
+    sql_on: ${dj_impression.campaign_id} = ${dj_match_table_campaigns.campaign_id} ;;
     relationship: many_to_one
   }
 
-  join: match_table_advertisers {
+  join: dj_match_table_advertisers {
     view_label: "Advertisers"
-    sql_on: ${dj_impression.advertiser_id} = ${match_table_advertisers.advertiser_id} ;;
+    sql_on: ${dj_impression.advertiser_id} = ${dj_match_table_advertisers.advertiser_id} ;;
     relationship: many_to_one
   }
 
-  join: match_table_ad_placement_assignments {
+  join: dj_match_table_ad_placement_assignments {
     view_label: "Ad Placements"
-    sql_on: ${dj_impression.ad_id} = ${match_table_ad_placement_assignments.ad_id} and ${dj_impression.placement_id} = ${match_table_ad_placement_assignments.placement_id} ;;
+    sql_on: ${dj_impression.ad_id} = ${dj_match_table_ad_placement_assignments.ad_id} and ${dj_impression.placement_id} = ${dj_match_table_ad_placement_assignments.placement_id} ;;
     relationship: many_to_one
   }
 
-  join: match_table_browsers {
+  join: dj_match_table_browsers {
     view_label: "Browsers"
-    sql_on: ${dj_impression.browser_platform_id} = ${match_table_browsers.browser_platform_id} ;;
+    sql_on: ${dj_impression.browser_platform_id} = ${dj_match_table_browsers.browser_platform_id} ;;
     relationship: many_to_one
   }
 
-  join: match_table_creatives {
+  join: dj_match_table_creatives {
     view_label: "Creatives"
-    sql_on: ${dj_impression.rendering_id} = ${match_table_creatives.rendering_id} ;;
+    sql_on: ${dj_impression.rendering_id} = ${dj_match_table_creatives.rendering_id} ;;
     relationship: many_to_one
   }
-  join: match_table_operating_systems {
+  join: dj_match_table_operating_systems {
     view_label: "Operating System"
-    sql_on: ${dj_impression.operating_system_id_key} = ${match_table_operating_systems.operating_system_id_key} ;;
+    sql_on: ${dj_impression.operating_system_id_key} = ${dj_match_table_operating_systems.operating_system_id_key} ;;
     relationship: many_to_one
   }
 

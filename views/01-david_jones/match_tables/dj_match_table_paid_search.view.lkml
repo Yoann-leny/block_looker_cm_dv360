@@ -1,4 +1,4 @@
-view: match_table_paid_search {
+view: dj_match_table_paid_search {
 
   sql_table_name: (select distinct advertiser_id, ad_id, campaign_id, Paid_Search_Legacy_Keyword_ID, Paid_Search_Campaign
   from `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.match_table_paid_search_@{DJ_CAMPAIGN_MANAGER_ID}`

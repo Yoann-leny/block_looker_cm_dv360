@@ -1,4 +1,4 @@
-view: match_table_campaigns {
+view: dj_match_table_campaigns {
   sql_table_name: (select * from `@{DJ_PROJECT_NAME}.@{DJ_DATASET_NAME}.match_table_campaigns_@{DJ_CAMPAIGN_MANAGER_ID}` where _LATEST_DATE = _DATA_DATE) ;;
 
   dimension: advertiser_id {

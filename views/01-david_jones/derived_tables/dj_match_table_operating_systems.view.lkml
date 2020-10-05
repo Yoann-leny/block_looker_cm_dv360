@@ -1,4 +1,4 @@
-view: match_table_operating_systems {
+view: dj_match_table_operating_systems {
 
 # De-Duping
   derived_table: {

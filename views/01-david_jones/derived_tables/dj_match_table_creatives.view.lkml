@@ -1,4 +1,4 @@
-view: match_table_creatives {
+view: dj_match_table_creatives {
 
   derived_table: {
     sql:
