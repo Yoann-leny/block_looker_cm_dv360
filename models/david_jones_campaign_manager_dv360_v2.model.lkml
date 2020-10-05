@@ -10,7 +10,7 @@ map_layer: dma {
 }
 
 persist_for: "24 hours"
-week_start_day: saturday
+week_start_day: sunday
 
 datagroup: new_day {
   sql_trigger:
