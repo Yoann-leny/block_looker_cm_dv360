@@ -1,5 +1,5 @@
 - dashboard: crg_digital_snapshot_v2
-  title: CRG Digital Snapshot v2
+  title: CRG Digital Snapshot v3
   layout: newspaper
   elements:
   - name: Media Spend (Last 30 days)
