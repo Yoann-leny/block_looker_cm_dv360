@@ -2,6 +2,10 @@ view: dj_dv360_forecast {
 
     sql_table_name: `@{DJ_PROJECT_NAME}.@{DJ_FORECAST_DATASET}.dv360_forecast`;;
 
+  dimension: week_name {
+    type: string
+    sql: "Week " || ${TABLE}.WEEK ;;
+  }
       dimension: week_start_date {
         type: string
         sql: ${TABLE}.week_start_date ;;
